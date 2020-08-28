@@ -9,7 +9,7 @@ const morgan = require('morgan');
 const errorHandler = require('./middleware/error.js');
 const notFound = require('./middleware/404.js');
 const authRouter = require('./auth/router.js');
-
+const extraRouter = require('./extra-routes.js'); /* Lab 13 */
 // Prepare the express app
 const app = express();
 
@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use(authRouter);
-
+app.use(extraRouter); /* Lab 13 */
 // Catchalls
 app.use(notFound);
 app.use(errorHandler);
